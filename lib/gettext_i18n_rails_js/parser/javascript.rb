@@ -102,7 +102,7 @@ module GettextI18nRailsJs
               (#{arg_regex},)*
               #{arg_regex}
             )?
-          \)
+          (?:\)|.+}\))
         /xm
       end
 

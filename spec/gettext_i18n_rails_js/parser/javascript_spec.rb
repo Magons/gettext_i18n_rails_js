@@ -386,6 +386,31 @@ describe GettextI18nRailsJs::Parser::Javascript do
     end
   end
 
+  describe "parses jsx files" do
+    let(:example) do
+      File.expand_path(
+        "../../../fixtures/example.jsx",
+        __FILE__
+      )
+    end
+
+    let(:parsed_example) do
+      parser.parse(example, [])
+    end
+
+    it "parses all translations" do
+      expect(parsed_example).to(
+        eq(
+          [
+            ["Decline", "#{example}:7"],
+            ["Hello %{name}", "#{example}:8"],
+            ["Hey %{first_name}", "#{example}:9"],
+          ]
+        )
+      )
+    end
+  end
+
   describe "parses coffee files" do
     let(:example) do
       File.expand_path(

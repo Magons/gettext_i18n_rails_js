@@ -27,6 +27,7 @@ source "http://rubygems.org"
 gemspec
 
 gem "rails", "~> #{ENV["RAILS_VERSION"]}" if ENV["RAILS_VERSION"]
+gem 'pry-moves'
 
 group :development do
   gem "guard", require: false
